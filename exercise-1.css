@@ -10,6 +10,9 @@
     border-radius: 10px;
     background-color: aquamarine;
 }
+.b-grid img:hover {
+    cursor: pointer;
+}
 .disable {
     pointer-events: none;
 }

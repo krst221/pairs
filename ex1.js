@@ -124,9 +124,9 @@ function rotateCard(card, i) {
   cardsFlipped++;
   if(cardsFlipped === 2) {
     grid$$.classList.add("disable");
-    setTimeout(() => grid$$.classList.remove("disable"), 500);
+    setTimeout(() => grid$$.classList.remove("disable"), 800);
   }
-  setTimeout(() => checkMatch(), 500);
+  setTimeout(() => checkMatch(), 800);
 }
 drawBoard = () => {
   shuffleImages();
