@@ -105,7 +105,6 @@ checkMatch = () => {
       }
       card1 = 15;
       card2 = 15;
-      console.log(score$$.textContent);
       if(score$$.textContent == (cardArray.length / 2)) setTimeout(() => alert ('GAME FINISHED! IT TOOK YOU ' + att$$.textContent + ' ATTEMPTS'), 500);  
     }
   }
