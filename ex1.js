@@ -2,62 +2,62 @@ let cardArray = [
     {
       id: 1,
       name: "earth",
-      img: "public/exercise-1/earth.svg",
+      img: "assets/img/earth.svg",
     },
     {
       id: 2,
       name: "jupiter",
-      img: "public/exercise-1/jupiter.svg",
+      img: "assets/img/jupiter.svg",
     },
     {
       id: 3,
       name: "mars",
-      img: "public/exercise-1/mars.svg",
+      img: "assets/img/mars.svg",
     },
     {
       id: 4,
       name: "mercury",
-      img: "public/exercise-1/mercury.svg",
+      img: "assets/img/mercury.svg",
     },
     {
       id: 5,
       name: "saturn",
-      img: "public/exercise-1/saturn.svg",
+      img: "assets/img/saturn.svg",
     },
     {
       id: 6,
       name: "uranus",
-      img: "public/exercise-1/uranus.svg",
+      img: "assets/img/uranus.svg",
     },
     {
       id: 7,
       name: "earth",
-      img: "public/exercise-1/earth.svg",
+      img: "assets/img/earth.svg",
     },
     {
       id: 8,
       name: "jupiter",
-      img: "public/exercise-1/jupiter.svg",
+      img: "assets/img/jupiter.svg",
     },
     {
       id: 9,
       name: "mars",
-      img: "public/exercise-1/mars.svg",
+      img: "assets/img/mars.svg",
     },
     {
       id: 10,
       name: "mercury",
-      img: "public/exercise-1/mercury.svg",
+      img: "assets/img/mercury.svg",
     },
     {
       id: 11,
       name: "saturn",
-      img: "public/exercise-1/saturn.svg",
+      img: "assets/img/saturn.svg",
     },
     {
       id: 12,
       name: "uranus",
-      img: "public/exercise-1/uranus.svg",
+      img: "assets/img/uranus.svg",
     },
   ];
 const score$$ = document.querySelector('[data-function="score"]');
@@ -80,8 +80,8 @@ checkMatch = () => {
     let card1 = 15;
     let card2 = 15;
     for (let i = 0 ; i < cardArray.length ; i++) {
-      if(grid$$.childNodes[i].src !== "http://127.0.0.1:5500/public/exercise-1/universe.svg" && grid$$.childNodes[i].src !== "http://127.0.0.1:5500/public/exercise-1/tick.svg" && card1 === 15) card1 = i;
-      if(grid$$.childNodes[i].src !== "http://127.0.0.1:5500/public/exercise-1/universe.svg" && grid$$.childNodes[i].src !== "http://127.0.0.1:5500/public/exercise-1/tick.svg" && card1 !== 15 && card2 === 15) card2 = i;
+      if(grid$$.childNodes[i].src !== "http://127.0.0.1:5500/assets/img/universe.svg" && grid$$.childNodes[i].src !== "http://127.0.0.1:5500/assets/img/tick.svg" && card1 === 15) card1 = i;
+      if(grid$$.childNodes[i].src !== "http://127.0.0.1:5500/assets/img/universe.svg" && grid$$.childNodes[i].src !== "http://127.0.0.1:5500/assets/img/tick.svg" && card1 !== 15 && card2 === 15) card2 = i;
       if(card2 === card1) card2 = 15;
       if(card1 !== 15 && card2 !== 15) break;
     }
@@ -89,19 +89,19 @@ checkMatch = () => {
       cardsFlipped = 0;
       att$$.textContent++;
       if(grid$$.childNodes[card1].src === grid$$.childNodes[card2].src) {
-        grid$$.childNodes[card1].src = "./public/exercise-1/tick.svg";
+        grid$$.childNodes[card1].src = "./assets/img/tick.svg";
         let cardCl1 = grid$$.childNodes[card1].cloneNode(true);
         grid$$.replaceChild(cardCl1, grid$$.childNodes[card1]);
         grid$$.childNodes[card1].addEventListener('click', cardFound);
-        grid$$.childNodes[card2].src = "./public/exercise-1/tick.svg";
+        grid$$.childNodes[card2].src = "./assets/img/tick.svg";
         let cardCl2 = grid$$.childNodes[card1].cloneNode(true);
         grid$$.replaceChild(cardCl2, grid$$.childNodes[card2]);
         grid$$.childNodes[card2].addEventListener('click', cardFound);
         score$$.textContent++;
       }
       else {
-        grid$$.childNodes[card1].src = "./public/exercise-1/universe.svg";
-        grid$$.childNodes[card2].src = "./public/exercise-1/universe.svg";
+        grid$$.childNodes[card1].src = "./assets/img/universe.svg";
+        grid$$.childNodes[card2].src = "./assets/img/universe.svg";
       }
       card1 = 15;
       card2 = 15;
@@ -133,7 +133,7 @@ drawBoard = () => {
   for (let i = 0 ; i < cardArray.length ; i++) {
     card$$ = document.createElement('img');
     card$$.addEventListener('click', ($event) => rotateCard($event.target, i));
-    card$$.src = "./public/exercise-1/universe.svg";
+    card$$.src = "./assets/img/universe.svg";
     grid$$.appendChild(card$$);
   }
 }
