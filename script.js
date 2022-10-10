@@ -80,8 +80,8 @@ checkMatch = () => {
     let card1 = 15;
     let card2 = 15;
     for (let i = 0 ; i < cardArray.length ; i++) {
-      if(grid$$.childNodes[i].src !== "http://127.0.0.1:5500/assets/img/universe.svg" && grid$$.childNodes[i].src !== "http://127.0.0.1:5500/assets/img/tick.svg" && card1 === 15) card1 = i;
-      if(grid$$.childNodes[i].src !== "http://127.0.0.1:5500/assets/img/universe.svg" && grid$$.childNodes[i].src !== "http://127.0.0.1:5500/assets/img/tick.svg" && card1 !== 15 && card2 === 15) card2 = i;
+      if(grid$$.childNodes[i].src !== "./assets/img/universe.svg" && grid$$.childNodes[i].src !== "./assets/img/tick.svg" && card1 === 15) card1 = i;
+      if(grid$$.childNodes[i].src !== "./assets/img/universe.svg" && grid$$.childNodes[i].src !== "./assets/img/tick.svg" && card1 !== 15 && card2 === 15) card2 = i;
       if(card2 === card1) card2 = 15;
       if(card1 !== 15 && card2 !== 15) break;
     }
