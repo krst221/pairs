@@ -64,7 +64,7 @@ const score$$ = document.querySelector('[data-function="score"]');
 const att$$ = document.querySelector('[data-function="attempts"]'); 
 const grid$$ = document.querySelector('[data-function="grid"]');
 let cardsFlipped = 0;
-let cardIndex = 40;
+let cardIndex = 0;
 shuffleImages = () => {
   let currentIndex = cardArray.length,  randomIndex;
   while (currentIndex != 0) {
