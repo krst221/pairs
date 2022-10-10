@@ -65,7 +65,7 @@ const att$$ = document.querySelector('[data-function="attempts"]');
 const grid$$ = document.querySelector('[data-function="grid"]');
 let cardsFlipped = 0;
 let cardIndex = 0;
-shuffleImages = () => {
+const shuffleImages = () => {
   let currentIndex = cardArray.length,  randomIndex;
   while (currentIndex != 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
@@ -74,34 +74,36 @@ shuffleImages = () => {
       cardArray[randomIndex], cardArray[currentIndex]];
   }
 }
-random = () => Math.floor(Math.random()*12 + 1);
-checkMatch = () => {
-  if(cardsFlipped === 2) {
+const random = () => Math.floor(Math.random()*12 + 1);
+const checkMatch = () => {
+  if(cardsFlipped == 2) {
     let card1 = 15;
     let card2 = 15;
     for (let i = 0 ; i < cardArray.length ; i++) {
-      if(grid$$.childNodes[i].src !== "./assets/img/universe.svg" && grid$$.childNodes[i].src !== "./assets/img/tick.svg" && card1 === 15) card1 = i;
-      if(grid$$.childNodes[i].src !== "./assets/img/universe.svg" && grid$$.childNodes[i].src !== "./assets/img/tick.svg" && card1 !== 15 && card2 === 15) card2 = i;
-      if(card2 === card1) card2 = 15;
-      if(card1 !== 15 && card2 !== 15) break;
+      console.log(grid$$.childNodes[i], grid$$.childNodes[i].src);
+      if(grid$$.childNodes[i].src != "http://127.0.0.1:5500/assets/img/universe.svg" && grid$$.childNodes[i].src != "./assets/img/tick.svg" && card1 == 15) card1 = i;
+      if(grid$$.childNodes[i].src != "http://127.0.0.1:5500/assets/img/universe.svg" && grid$$.childNodes[i].src != "./assets/img/tick.svg" && card1 != 15 && card2 == 15) card2 = i;
+      if(card2 == card1) card2 = 15;
+      if(card1 != 15 && card2 != 15) break;
     }
-    if(card1 !== 15 && card2 !== 15) {
+    console.log(card1, card2);
+    if(card1 != 15 && card2 != 15) {
       cardsFlipped = 0;
       att$$.textContent++;
-      if(grid$$.childNodes[card1].src === grid$$.childNodes[card2].src) {
+      if(grid$$.childNodes[card1].src == grid$$.childNodes[card2].src) {
         grid$$.childNodes[card1].src = "./assets/img/tick.svg";
         let cardCl1 = grid$$.childNodes[card1].cloneNode(true);
         grid$$.replaceChild(cardCl1, grid$$.childNodes[card1]);
         grid$$.childNodes[card1].addEventListener('click', cardFound);
         grid$$.childNodes[card2].src = "./assets/img/tick.svg";
-        let cardCl2 = grid$$.childNodes[card1].cloneNode(true);
+        let cardCl2 = grid$$.childNodes[card2].cloneNode(true);
         grid$$.replaceChild(cardCl2, grid$$.childNodes[card2]);
         grid$$.childNodes[card2].addEventListener('click', cardFound);
         score$$.textContent++;
       }
       else {
-        grid$$.childNodes[card1].src = "./assets/img/universe.svg";
-        grid$$.childNodes[card2].src = "./assets/img/universe.svg";
+        grid$$.childNodes[card1].src = "http://127.0.0.1:5500/assets/img/universe.svg";
+        grid$$.childNodes[card2].src = "http://127.0.0.1:5500/assets/img/universe.svg";
       }
       card1 = 15;
       card2 = 15;
@@ -121,18 +123,18 @@ function rotateCard(card, i) {
   if(i == cardIndex) sameCard();
   cardIndex = i;
   cardsFlipped++;
-  if(cardsFlipped === 2) {
+  if(cardsFlipped == 2) {
     grid$$.classList.add("disable");
     setTimeout(() => grid$$.classList.remove("disable"), 800);
   }
   setTimeout(() => checkMatch(), 800);
 }
-drawBoard = () => {
+const drawBoard = () => {
   shuffleImages();
   for (let i = 0 ; i < cardArray.length ; i++) {
     card$$ = document.createElement('img');
     card$$.addEventListener('click', ($event) => rotateCard($event.target, i));
-    card$$.src = "./assets/img/universe.svg";
+    card$$.src = "http://127.0.0.1:5500/assets/img/universe.svg";
     grid$$.appendChild(card$$);
   }
 }
